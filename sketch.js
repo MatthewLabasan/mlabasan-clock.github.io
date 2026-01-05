@@ -32,9 +32,10 @@ function draw() {
 
     // Continuous timers based on elapsed time since sketch start (no backward jumps)
     let elapsedSec = (millis() - startMillis) / 1000;
-    let tSec = startSec + elapsedSec;            // cumulative seconds since start
-    let tMin = startMin + elapsedSec / 60;       // cumulative minutes since start
-    let tHr  = startHr  + elapsedSec / 3600;     // cumulative hours since start
+    let tSec = startSec + elapsedSec;                        // cumulative seconds since start
+    let tMin = startMin + startSec / 60 + elapsedSec / 60;   // minutes with starting seconds
+    let tHr  = startHr  + startMin / 60 + startSec / 3600    // hours with starting minutes/seconds
+                 + elapsedSec / 3600;                        // add elapsed hours
 
     background('#E1F0FF');
     textSize(32);
