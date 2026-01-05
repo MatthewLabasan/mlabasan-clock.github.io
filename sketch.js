@@ -34,8 +34,7 @@ function draw() {
     let elapsedSec = (millis() - startMillis) / 1000;
     let tSec = startSec + elapsedSec;                        // cumulative seconds since start
     let tMin = startMin + startSec / 60 + elapsedSec / 60;   // minutes with starting seconds
-    let tHr  = startHr  + startMin / 60 + startSec / 3600    // hours with starting minutes/seconds
-                 + elapsedSec / 3600;                        // add elapsed hours
+    let tHr  = startHr + startMin / 60 + startSec / 3600 + elapsedSec / 3600; // hours with fraction
 
     background('#E1F0FF');
     textSize(32);
